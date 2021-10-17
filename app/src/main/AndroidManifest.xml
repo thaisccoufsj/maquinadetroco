@@ -10,8 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaquinaDeTroco">
         <activity
-            android:name=".Caixa.CaixaActivity"
-            android:exported="true" />
+            android:name=".Activitys.CaixaActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

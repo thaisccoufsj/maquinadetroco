@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Maquina De Troco</string>
+    <string name="_5_centavos">5 Centavos</string>
+    <string name="_10_centavos">10 Centavos</string>
+    <string name="_25_centavos">25 Centavos</string>
+    <string name="_50_centavos">50 Centavos</string>
+    <string name="_1_real">1 Real</string>
+    <string name="novo_troco">Novo Troco</string>
+    <string name="adicionar_moedas">Adicionar Moedas</string>
+    <string name="retirar_moedas">Retirar Moedas</string>
+    <string name="historico_do_caixa">Histórico do Caixa</string>
+    <string name="_0">0</string>
 </resources>
