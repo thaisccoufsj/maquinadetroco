@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Maquina De Troco</string>
     <string name="_5_centavos">5 Centavos</string>
+    <string name="_5_centavos_total">Total 5 Centavos</string>
     <string name="_10_centavos">10 Centavos</string>
     <string name="_25_centavos">25 Centavos</string>
     <string name="_50_centavos">50 Centavos</string>
@@ -10,4 +11,9 @@
     <string name="retirar_moedas">Retirar Moedas</string>
     <string name="historico_do_caixa">Histórico do Caixa</string>
     <string name="_0">0</string>
+    <string name="TOTAL">TOTAL</string>
+    <string name="alterar_caixa_instrucoes">Insira a quantidade de cada moeda abaixo para continuar:</string>
+
+    <string name="ACTIVITY_ALTERAR_CAIXA_MODO">ACTIVITY_ALTERAR_CAIXA_MODO</string>
+    <string name="ACTIVITY_ALTERAR_CAIXA_DADOS">ACTIVITY_ALTERAR_CAIXA_DADOS</string>
 </resources>

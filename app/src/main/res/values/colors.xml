@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="border_card">#616060</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="caixa_total">#1D740E</color>
+    <color name="background_field_disabled">#E3E0E0</color>
 </resources>

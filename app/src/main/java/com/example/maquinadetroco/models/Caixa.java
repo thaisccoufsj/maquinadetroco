@@ -1,11 +1,15 @@
 package com.example.maquinadetroco.models;
 
+import android.os.Parcelable;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "CAIXA")
-public class Caixa {
+public class Caixa implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     public long id;
@@ -17,6 +21,25 @@ public class Caixa {
     public int quantidadeMoeda25 = 0;
     @ColumnInfo(name = "quantidadeMoeda50")
     public int quantidadeMoeda50 = 0;
+    @ColumnInfo(name = "quantidadeMoeda1")
+    public int quantidadeMoeda1;
+
+    public double valorTotal(){
+        return (quantidadeMoeda5 * 0.05) + (quantidadeMoeda10 * 0.10) + (quantidadeMoeda25 * 0.25)
+                + (quantidadeMoeda50 * 0.5) + (quantidadeMoeda1);
+    }
+
+    public Caixa(){
+
+    }
+
+    public Caixa(int quantidadeMoeda5,int quantidadeMoeda10,int quantidadeMoeda25,int quantidadeMoeda50,int quantidadeMoeda1){
+        this.quantidadeMoeda5 = quantidadeMoeda5;
+        this.quantidadeMoeda10 = quantidadeMoeda10;
+        this.quantidadeMoeda25 = quantidadeMoeda25;
+        this.quantidadeMoeda50 = quantidadeMoeda50;
+        this.quantidadeMoeda1= quantidadeMoeda1;
+    }
 
     public long getId() {
         return id;
@@ -65,8 +88,5 @@ public class Caixa {
     public int getQuantidadeMoeda1() {
         return quantidadeMoeda1;
     }
-
-    @ColumnInfo(name = "quantidadeMoeda1")
-    public int quantidadeMoeda1;
 
 }

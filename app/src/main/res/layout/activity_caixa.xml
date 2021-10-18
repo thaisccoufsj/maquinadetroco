@@ -217,6 +217,7 @@
             app:cardCornerRadius="5dp"
             app:strokeColor="@color/border_card"
             app:strokeWidth="1dp"
+            android:layout_marginEnd="5dp"
             >
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -250,12 +251,46 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <TextView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:visibility="invisible"
-            />
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            app:strokeColor="@color/border_card"
+            app:strokeWidth="1dp"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TOTAL"
+                    android:textColor="@color/caixa_total"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvTotal"
+                    android:text="@string/_0"
+                    android:textColor="@color/caixa_total"
+                    android:paddingTop="5dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
