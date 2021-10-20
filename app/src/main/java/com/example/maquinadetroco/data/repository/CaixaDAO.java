@@ -1,17 +1,19 @@
 package com.example.maquinadetroco.data.repository;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.maquinadetroco.models.Caixa;
+import com.example.maquinadetroco.models.HistoricoCaixa;
 
 import java.util.List;
 
 @Dao
-interface CaixaDAO {
+public interface CaixaDAO {
 
     @Query("SELECT * FROM caixa LIMIT 1")
     List<Caixa> getCaixa();
@@ -21,5 +23,14 @@ interface CaixaDAO {
 
     @Insert
     Long insertCaixa(Caixa caixa);
+
+    @Query("SELECT * FROM HISTORICO_CAIXA")
+    List<HistoricoCaixa> getHistorico();
+
+    @Insert
+    Long insertHistorico(HistoricoCaixa historicoCaixa);
+
+    @Delete
+    void deleteHistorico(HistoricoCaixa historicoCaixa);
 
 }

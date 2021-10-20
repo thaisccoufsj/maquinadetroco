@@ -1,7 +1,5 @@
 package com.example.maquinadetroco.viewModels;
 
-import android.app.Application;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -37,7 +35,7 @@ public class CaixaViewModel extends ViewModel {
     }
 
 
-    private void carregarMoedas(){
+    public void carregarMoedas(){
 
         stateView.setValue(new StateView(Constants.STATE_VIEW_LOADING));
 

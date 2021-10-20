@@ -14,13 +14,14 @@ import com.example.maquinadetroco.dialogs.Dialogs;
 import com.example.maquinadetroco.factorys.CaixaViewModelFactory;
 import com.example.maquinadetroco.models.Caixa;
 import com.example.maquinadetroco.utils.Constants;
+import com.example.maquinadetroco.utils.Funcoes;
 import com.example.maquinadetroco.viewModels.CaixaViewModel;
-
-import java.util.Locale;
 
 public class CaixaActivity extends AppCompatActivity {
 
     private ActivityCaixaBinding binding;
+    private CaixaViewModel caixaViewModel;
+    private long id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class CaixaActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         CaixaRepo repository = new CaixaRepoImpl(this.getApplication());
-        CaixaViewModel caixaViewModel = new ViewModelProvider(this, new CaixaViewModelFactory(repository)).get(CaixaViewModel.class);
+        caixaViewModel = new ViewModelProvider(this, new CaixaViewModelFactory(repository)).get(CaixaViewModel.class);
         enableListeners();
 
         caixaViewModel.getCaixa().observe(this, caixa -> {
@@ -38,7 +39,8 @@ public class CaixaActivity extends AppCompatActivity {
             binding.tvQuantidade25Centavos.setText(String.valueOf(caixa.getQuantidadeMoeda25()));
             binding.tvQuantidade50Centavos.setText(String.valueOf(caixa.getQuantidadeMoeda50()));
             binding.tvQuantidade1Real.setText(String.valueOf(caixa.getQuantidadeMoeda1()));
-            binding.tvTotal.setText(String.format(new Locale("pt", "BR"),"R$ %10.2f",caixa.valorTotal()));
+            binding.tvTotal.setText(String.format(Funcoes.getLocale(),"R$ %10.2f",caixa.valorTotal()));
+            id = caixa.getId();
         });
 
         caixaViewModel.getStateView().observe(this, stateView -> {
@@ -47,6 +49,12 @@ public class CaixaActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        caixaViewModel.carregarMoedas();
     }
 
     private void enableListeners(){
@@ -73,12 +81,10 @@ public class CaixaActivity extends AppCompatActivity {
 
         });
 
-
-
     }
 
     private Caixa obterCaixa(){
-        return new Caixa(Integer.parseInt(binding.tvQuantidade5Centavos.getText().toString()),
+        return new Caixa(id,Integer.parseInt(binding.tvQuantidade5Centavos.getText().toString()),
                 Integer.parseInt(binding.tvQuantidade10Centavos.getText().toString()),
                 Integer.parseInt(binding.tvQuantidade25Centavos.getText().toString()),
                 Integer.parseInt(binding.tvQuantidade50Centavos.getText().toString()),

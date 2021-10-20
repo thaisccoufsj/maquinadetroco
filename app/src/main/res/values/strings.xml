@@ -16,4 +16,9 @@
 
     <string name="ACTIVITY_ALTERAR_CAIXA_MODO">ACTIVITY_ALTERAR_CAIXA_MODO</string>
     <string name="ACTIVITY_ALTERAR_CAIXA_DADOS">ACTIVITY_ALTERAR_CAIXA_DADOS</string>
+    <string name="_10_centavos_total">Total 10 centavos</string>
+    <string name="_25_centavos_total">Total 25 centavos</string>
+    <string name="_50_centavos_total">Total 50 centavos</string>
+    <string name="_1_real_total">Total 1 real</string>
+    <string name="salvar">Salvar</string>
 </resources>

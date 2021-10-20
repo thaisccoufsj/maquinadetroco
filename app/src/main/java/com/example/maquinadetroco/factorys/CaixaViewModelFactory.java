@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.maquinadetroco.data.repository.CaixaRepo;
-import com.example.maquinadetroco.models.Caixa;
+import com.example.maquinadetroco.viewModels.AlterarCaixaViewModel;
 import com.example.maquinadetroco.viewModels.CaixaViewModel;
 
 public class CaixaViewModelFactory extends ViewModelProvider.NewInstanceFactory{
@@ -22,7 +22,11 @@ public class CaixaViewModelFactory extends ViewModelProvider.NewInstanceFactory{
 
         if(modelClass.isAssignableFrom(CaixaViewModel.class)){
             return (T) new CaixaViewModel(repository);
-        }/*else if(modelClass.isAssignableFrom(DetailTodoViewModel::class.java)){
+        }else if(modelClass.isAssignableFrom(AlterarCaixaViewModel.class)){
+            return (T) new AlterarCaixaViewModel(repository);
+        }
+
+        /*else if(modelClass.isAssignableFrom(DetailTodoViewModel::class.java)){
             return DetailTodoViewModel(repository,bundle) as T
         }*/
 

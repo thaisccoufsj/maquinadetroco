@@ -67,7 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="@string/_5_centavos"/>
+            android:hint="@string/_5_centavos"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -92,5 +93,203 @@
 
             />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tilQuantidadeMoeda10"
+        app:layout_constraintTop_toBottomOf="@id/tilQuantidadeMoeda5"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintEnd_toStartOf="@id/tilTotalMoeda10"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/_10_centavos"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tilTotalMoeda10"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tilQuantidadeMoeda5"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/tilQuantidadeMoeda10"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="@color/background_field_disabled"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:enabled="false"
+            android:focusable="false"
+            android:hint="@string/_10_centavos_total"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tilQuantidadeMoeda25"
+        app:layout_constraintTop_toBottomOf="@id/tilQuantidadeMoeda10"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintEnd_toStartOf="@id/tilTotalMoeda25"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/_25_centavos"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tilTotalMoeda25"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tilQuantidadeMoeda10"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/tilQuantidadeMoeda25"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="@color/background_field_disabled"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:enabled="false"
+            android:focusable="false"
+            android:hint="@string/_25_centavos_total"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tilQuantidadeMoeda50"
+        app:layout_constraintTop_toBottomOf="@id/tilQuantidadeMoeda25"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintEnd_toStartOf="@id/tilTotalMoeda50"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/_50_centavos"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tilTotalMoeda50"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tilQuantidadeMoeda25"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/tilQuantidadeMoeda50"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="@color/background_field_disabled"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:enabled="false"
+            android:focusable="false"
+            android:hint="@string/_50_centavos_total"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tilQuantidadeMoeda1"
+        app:layout_constraintTop_toBottomOf="@id/tilQuantidadeMoeda50"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintEnd_toStartOf="@id/tilTotalMoeda1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/_1_real"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tilTotalMoeda1"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tilQuantidadeMoeda50"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/tilQuantidadeMoeda1"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="@color/background_field_disabled"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:enabled="false"
+            android:focusable="false"
+            android:hint="@string/_1_real_total"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvLabelTotal"
+        android:text="@string/TOTAL"
+        android:textColor="@color/caixa_total"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tilQuantidadeMoeda1"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvValorTotal"
+        android:textSize="20sp"
+        android:layout_marginEnd="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/guide_end"
+        app:layout_constraintTop_toBottomOf="@+id/tilTotalMoeda1"
+        android:id="@+id/tvValorTotal"
+        tools:text="R$ 0,00"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/caixa_total"
+        android:textStyle="bold"
+        android:layout_marginEnd="10sp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorTotal"
+        app:layout_constraintEnd_toEndOf="@+id/guide_end"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:icon="@drawable/ic_save_24"
+        android:text="@string/salvar"
+        android:id="@+id/btnSalvar"
+        android:layout_marginTop="20dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

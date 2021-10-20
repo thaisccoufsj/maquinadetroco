@@ -2,17 +2,14 @@ package com.example.maquinadetroco.data.repository;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.room.Database;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import com.example.maquinadetroco.models.Caixa;
+import com.example.maquinadetroco.models.HistoricoCaixa;
 
-@Database(entities = {Caixa.class}, version = 1,exportSchema = false)
+@Database(entities = {Caixa.class, HistoricoCaixa.class}, version = 2,exportSchema = false)
 public abstract class AppDataBase extends RoomDatabase {
 
     private static final String DB_NAME = "maquina_trocos";

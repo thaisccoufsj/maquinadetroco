@@ -15,12 +15,15 @@ public class Dialogs {
     }
 
     public void showMessage(String message){
+        showMessage(message, (dialog, which) -> dialog.dismiss());
+    }
+
+    public void showMessage(String message,DialogInterface.OnClickListener listener){
         new MaterialAlertDialogBuilder(context)
                 .setTitle("Aviso")
-                .setNeutralButton("OK", (dialog, which) -> {
-                    dialog.dismiss();
-                })
+                .setNeutralButton("OK", listener)
                 .setMessage(message)
+                .setCancelable(false)
                 .show();
     }
 

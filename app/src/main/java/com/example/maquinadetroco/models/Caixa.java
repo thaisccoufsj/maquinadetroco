@@ -1,28 +1,30 @@
 package com.example.maquinadetroco.models;
 
+import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
 @Entity(tableName = "CAIXA")
-public class Caixa implements Serializable {
+public class Caixa implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
-    public long id;
+    private long id;
     @ColumnInfo(name = "quantidadeMoeda5")
-    public int quantidadeMoeda5 = 0;
+    private int quantidadeMoeda5 = 0;
     @ColumnInfo(name = "quantidadeMoeda10")
-    public int quantidadeMoeda10 = 0;
+    private int quantidadeMoeda10 = 0;
     @ColumnInfo(name = "quantidadeMoeda25")
-    public int quantidadeMoeda25 = 0;
+    private int quantidadeMoeda25 = 0;
     @ColumnInfo(name = "quantidadeMoeda50")
-    public int quantidadeMoeda50 = 0;
+    private int quantidadeMoeda50 = 0;
     @ColumnInfo(name = "quantidadeMoeda1")
-    public int quantidadeMoeda1;
+    private int quantidadeMoeda1 = 0;
 
     public double valorTotal(){
         return (quantidadeMoeda5 * 0.05) + (quantidadeMoeda10 * 0.10) + (quantidadeMoeda25 * 0.25)
@@ -33,12 +35,25 @@ public class Caixa implements Serializable {
 
     }
 
-    public Caixa(int quantidadeMoeda5,int quantidadeMoeda10,int quantidadeMoeda25,int quantidadeMoeda50,int quantidadeMoeda1){
+    @Ignore
+    public Caixa(long id,int quantidadeMoeda5,int quantidadeMoeda10,int quantidadeMoeda25,
+                 int quantidadeMoeda50,int quantidadeMoeda1){
+        this.id = id;
         this.quantidadeMoeda5 = quantidadeMoeda5;
         this.quantidadeMoeda10 = quantidadeMoeda10;
         this.quantidadeMoeda25 = quantidadeMoeda25;
         this.quantidadeMoeda50 = quantidadeMoeda50;
         this.quantidadeMoeda1= quantidadeMoeda1;
+    }
+
+    @Ignore
+    public Caixa(Parcel source){
+        id = source.readLong();
+        quantidadeMoeda5 = source.readInt();
+        quantidadeMoeda10 = source.readInt();
+        quantidadeMoeda25 = source.readInt();
+        quantidadeMoeda50 = source.readInt();
+        quantidadeMoeda1 = source.readInt();
     }
 
     public long getId() {
@@ -88,5 +103,32 @@ public class Caixa implements Serializable {
     public int getQuantidadeMoeda1() {
         return quantidadeMoeda1;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeInt(quantidadeMoeda5);
+        dest.writeInt(quantidadeMoeda10);
+        dest.writeInt(quantidadeMoeda25);
+        dest.writeInt(quantidadeMoeda50);
+        dest.writeInt(quantidadeMoeda1);
+    }
+
+    public static final Creator<Caixa> CREATOR = new Creator<Caixa>() {
+        @Override
+        public Caixa createFromParcel(Parcel source) {
+            return new Caixa(source);
+        }
+
+        @Override
+        public Caixa[] newArray(int size) {
+            return new Caixa[size];
+        }
+    };
 
 }
