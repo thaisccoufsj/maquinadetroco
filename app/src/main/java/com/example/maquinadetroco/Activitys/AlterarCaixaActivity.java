@@ -2,6 +2,8 @@ package com.example.maquinadetroco.Activitys;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -65,6 +67,16 @@ public class AlterarCaixaActivity extends AppCompatActivity {
                     (dialog, which) -> AlterarCaixaActivity.this.finish());
         }
 
+        if(modo == Constants.ADICIONAR_MOEDAS){
+             myChildToolbar.setTitle("Adicionar Moedas");
+        }else if(modo == Constants.RETIRAR_MOEDAS){
+             myChildToolbar.setTitle("Retirar Moedas");
+        }else{
+            Dialogs.getInstance(this).showMessage("Modo de ação não identificado. Por favor tente novamente.", (dialog, which) -> {
+                AlterarCaixaActivity.this.finish();
+            });
+        }
+
         viewModel.getStateView().observe(this, new Observer<StateView>() {
             @Override
             public void onChanged(StateView stateView) {
@@ -100,16 +112,35 @@ public class AlterarCaixaActivity extends AppCompatActivity {
     private void enableListeners(){
 
         binding.btnSalvar.setOnClickListener(view -> {
-             if(modo == Constants.ADICIONAR_MOEDAS){
-                  viewModel.processarAdicionarMoedas(Integer.parseInt(binding.tilTotalMoeda5.getEditText().getText().toString()),
-                          Integer.parseInt(binding.tilTotalMoeda10.getEditText().getText().toString()),
-                          Integer.parseInt(binding.tilTotalMoeda25.getEditText().getText().toString()),
-                          Integer.parseInt(binding.tilTotalMoeda50.getEditText().getText().toString()),
-                          Integer.parseInt(binding.tilTotalMoeda1.getEditText().getText().toString()),caixa);
-             }
+            int totalMoeda5 = 0;
+            if(!binding.tilQuantidadeMoeda5.getEditText().getText().toString().isEmpty()){
+                totalMoeda5 = Integer.parseInt(binding.tilQuantidadeMoeda5.getEditText().getText().toString());
+            }
+
+            int totalMoeda10 = 0;
+            if(!binding.tilQuantidadeMoeda10.getEditText().getText().toString().isEmpty()){
+                totalMoeda10 = Integer.parseInt(binding.tilQuantidadeMoeda10.getEditText().getText().toString());
+            }
+
+            int totalMoeda25 = 0;
+            if(!binding.tilQuantidadeMoeda25.getEditText().getText().toString().isEmpty()){
+                totalMoeda25 = Integer.parseInt(binding.tilQuantidadeMoeda25.getEditText().getText().toString());
+            }
+
+            int totalMoeda50 = 0;
+            if(!binding.tilQuantidadeMoeda50.getEditText().getText().toString().isEmpty()){
+                totalMoeda50 = Integer.parseInt(binding.tilQuantidadeMoeda50.getEditText().getText().toString());
+            }
+
+            int totalMoeda1 = 0;
+            if(!binding.tilQuantidadeMoeda1.getEditText().getText().toString().isEmpty()){
+                totalMoeda1 = Integer.parseInt(binding.tilQuantidadeMoeda1.getEditText().getText().toString());
+            }
+
+            viewModel.salvar(totalMoeda5,totalMoeda10,totalMoeda25,totalMoeda50,totalMoeda1,caixa,modo);
         });
 
-        //Eventos para atualizar em temop real as quantidades e o valor total
+        //Eventos para atualizar em tempo real as quantidades e o valor total
         EditText etMoeda5  = binding.tilQuantidadeMoeda5.getEditText();
         EditText etMoeda10 = binding.tilQuantidadeMoeda10.getEditText();
         EditText etMoeda25 = binding.tilQuantidadeMoeda25.getEditText();
@@ -193,9 +224,18 @@ public class AlterarCaixaActivity extends AppCompatActivity {
 
     private void atualizarValoresParaRemocaoDeMoedas(){
 
+        boolean valido = true;
+
         int totalMoeda5 = caixa.getQuantidadeMoeda5();
         if(!binding.tilQuantidadeMoeda5.getEditText().getText().toString().isEmpty()){
             totalMoeda5 -= Integer.parseInt(binding.tilQuantidadeMoeda5.getEditText().getText().toString());
+        }
+
+        if((totalMoeda5 < 0)){
+             Dialogs.getInstance(this).showMessage("Não é possível tem um valor em caixa negativo.");
+             binding.tilQuantidadeMoeda5.getEditText().setText(String.valueOf(caixa.getQuantidadeMoeda5()));
+             binding.tilTotalMoeda5.getEditText().setText("0");
+             valido = false;
         }
 
         int totalMoeda10 = caixa.getQuantidadeMoeda10();
@@ -203,9 +243,23 @@ public class AlterarCaixaActivity extends AppCompatActivity {
             totalMoeda10 -= Integer.parseInt(binding.tilQuantidadeMoeda10.getEditText().getText().toString());
         }
 
+        if((totalMoeda10 < 0)){
+            Dialogs.getInstance(this).showMessage("Não é possível tem um valor em caixa negativo.");
+            binding.tilQuantidadeMoeda10.getEditText().setText(String.valueOf(caixa.getQuantidadeMoeda10()));
+            binding.tilTotalMoeda10.getEditText().setText("0");
+            valido = false;
+        }
+
         int totalMoeda25 = caixa.getQuantidadeMoeda25();
         if(!binding.tilQuantidadeMoeda25.getEditText().getText().toString().isEmpty()){
             totalMoeda25 -= Integer.parseInt(binding.tilQuantidadeMoeda25.getEditText().getText().toString());
+        }
+
+        if((totalMoeda25 < 0)){
+            Dialogs.getInstance(this).showMessage("Não é possível tem um valor em caixa negativo.");
+            binding.tilQuantidadeMoeda25.getEditText().setText(String.valueOf(caixa.getQuantidadeMoeda25()));
+            binding.tilTotalMoeda25.getEditText().setText("0");
+            valido = false;
         }
 
         int totalMoeda50 = caixa.getQuantidadeMoeda50();
@@ -213,12 +267,27 @@ public class AlterarCaixaActivity extends AppCompatActivity {
             totalMoeda50 -= Integer.parseInt(binding.tilQuantidadeMoeda50.getEditText().getText().toString());
         }
 
+        if((totalMoeda50 < 0)){
+            Dialogs.getInstance(this).showMessage("Não é possível tem um valor em caixa negativo.");
+            binding.tilQuantidadeMoeda50.getEditText().setText(String.valueOf(caixa.getQuantidadeMoeda50()));
+            binding.tilTotalMoeda50.getEditText().setText("0");
+            valido = false;
+        }
+
         int totalMoeda1 = caixa.getQuantidadeMoeda1();
         if(!binding.tilQuantidadeMoeda1.getEditText().getText().toString().isEmpty()){
             totalMoeda1 -= Integer.parseInt(binding.tilQuantidadeMoeda1.getEditText().getText().toString());
         }
 
-       atualizarQuantidadeMoedasEValorTotal(totalMoeda5,totalMoeda10,totalMoeda25,totalMoeda50,totalMoeda1);
+        if((totalMoeda1 < 0)){
+            Dialogs.getInstance(this).showMessage("Não é possível tem um valor em caixa negativo.");
+            binding.tilQuantidadeMoeda1.getEditText().setText(String.valueOf(caixa.getQuantidadeMoeda1()));
+            binding.tilTotalMoeda1.getEditText().setText("0");
+            valido = false;
+        }
+
+        if(valido)
+             atualizarQuantidadeMoedasEValorTotal(totalMoeda5,totalMoeda10,totalMoeda25,totalMoeda50,totalMoeda1);
 
     }
 

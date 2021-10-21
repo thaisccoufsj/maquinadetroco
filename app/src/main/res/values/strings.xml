@@ -21,4 +21,10 @@
     <string name="_50_centavos_total">Total 50 centavos</string>
     <string name="_1_real_total">Total 1 real</string>
     <string name="salvar">Salvar</string>
+    <string name="_5_centavos_label">5 centavos   : </string>
+    <string name="_10_centavos_label">10 centavos : </string>
+    <string name="_25_centavos_label">25 centavos : </string>
+    <string name="_50_centavos_label">50 centavos : </string>
+    <string name="_1_real_label">1 real      : </string>
+    <string name="recarregar">Recarregar</string>
 </resources>

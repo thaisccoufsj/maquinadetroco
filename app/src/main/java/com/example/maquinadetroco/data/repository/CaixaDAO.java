@@ -24,7 +24,7 @@ public interface CaixaDAO {
     @Insert
     Long insertCaixa(Caixa caixa);
 
-    @Query("SELECT * FROM HISTORICO_CAIXA")
+    @Query("SELECT * FROM HISTORICO_CAIXA ORDER BY dataHora DESC")
     List<HistoricoCaixa> getHistorico();
 
     @Insert

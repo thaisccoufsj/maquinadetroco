@@ -67,6 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:text="@string/_0"
             android:hint="@string/_5_centavos"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -88,6 +89,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:enabled="false"
+            android:text="@string/_0"
             android:focusable="false"
             android:hint="@string/_5_centavos_total"
 
@@ -108,6 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:text="@string/_0"
             android:hint="@string/_10_centavos"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,6 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:text="@string/_0"
             android:hint="@string/_25_centavos"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -185,6 +189,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/_0"
             android:inputType="number"
             android:hint="@string/_50_centavos"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -225,6 +230,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:text="@string/_0"
             android:hint="@string/_1_real"/>
     </com.google.android.material.textfield.TextInputLayout>
 

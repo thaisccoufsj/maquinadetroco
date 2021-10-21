@@ -74,7 +74,7 @@ public class CaixaActivity extends AppCompatActivity {
         });
 
         binding.btnHistoricoCaixa.setOnClickListener(view -> {
-
+           mStartForResult.launch(new Intent(this,HistoricoActivity.class));
         });
 
         binding.btnNovoTroco.setOnClickListener(view -> {
