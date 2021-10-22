@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Maquina De Troco</string>
+
+    <!-- Labels e mensagens -->
     <string name="_5_centavos">5 Centavos</string>
     <string name="_5_centavos_total">Total 5 Centavos</string>
     <string name="_10_centavos">10 Centavos</string>
@@ -12,19 +14,31 @@
     <string name="historico_do_caixa">Histórico do Caixa</string>
     <string name="_0">0</string>
     <string name="TOTAL">TOTAL</string>
-    <string name="alterar_caixa_instrucoes">Insira a quantidade de cada moeda abaixo para continuar:</string>
-
-    <string name="ACTIVITY_ALTERAR_CAIXA_MODO">ACTIVITY_ALTERAR_CAIXA_MODO</string>
-    <string name="ACTIVITY_ALTERAR_CAIXA_DADOS">ACTIVITY_ALTERAR_CAIXA_DADOS</string>
     <string name="_10_centavos_total">Total 10 centavos</string>
     <string name="_25_centavos_total">Total 25 centavos</string>
     <string name="_50_centavos_total">Total 50 centavos</string>
     <string name="_1_real_total">Total 1 real</string>
     <string name="salvar">Salvar</string>
-    <string name="_5_centavos_label">5 centavos   : </string>
+    <string name="_5_centavos_label">5   centavos : </string>
     <string name="_10_centavos_label">10 centavos : </string>
     <string name="_25_centavos_label">25 centavos : </string>
     <string name="_50_centavos_label">50 centavos : </string>
     <string name="_1_real_label">1 real      : </string>
     <string name="recarregar">Recarregar</string>
+    <string name="label_saldo">Saldo :</string>
+    <string name="valor_da_compra">Valor da Compra</string>
+    <string name="valor_recebido">Valor Recebido</string>
+    <string name="calcular">Calcular</string>
+
+    <!-- Strings de controle -->
+    <string name="ACTIVITY_ALTERAR_CAIXA_MODO">ACTIVITY_ALTERAR_CAIXA_MODO</string>
+    <string name="ACTIVITY_ALTERAR_CAIXA_DADOS">ACTIVITY_ALTERAR_CAIXA_DADOS</string>
+    <string name="CAIXA">CAIXA_MAQUINA_DE_TROCOS</string>
+
+
+    <!-- Mensagens -->
+    <string name="gerar_troco_instrucoes">Digite os valores e clique em calcular para gerar o troco. Clique em salvar para confirmar a operação.</string>
+    <string name="alterar_caixa_instrucoes">Insira a quantidade de cada moeda abaixo para continuar:</string>
+    <string name="resultado_gerar_troco"></string>
+
 </resources>

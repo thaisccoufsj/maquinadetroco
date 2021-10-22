@@ -29,6 +29,17 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:id="@+id/tvModo"
+          app:layout_constraintStart_toEndOf="@id/dataHora"
+          app:layout_constraintTop_toTopOf="parent"
+          android:layout_marginStart="10dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:textStyle="bold"
+          />
+
+      <TextView
+          android:layout_width="85dp"
+          android:layout_height="wrap_content"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@id/dataHora"
           android:textColor="@color/black"
@@ -37,17 +48,42 @@
           />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:id="@+id/tv5Centavos"
             app:layout_constraintStart_toEndOf="@+id/tvLabel5Centavos"
             app:layout_constraintTop_toBottomOf="@id/dataHora"
+            app:layout_constraintEnd_toStartOf="@+id/tvLabelTotalMoeda5"
             android:textColor="@color/black"
             tools:text="200"
             />
 
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvLabelTotalMoeda5"
+          app:layout_constraintStart_toEndOf="@+id/tv5Centavos"
+          android:layout_marginStart="15dp"
+          app:layout_constraintTop_toBottomOf="@id/dataHora"
+          android:text="@string/label_saldo"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toStartOf="@+id/tvTotalMoeda5"
+          />
+
+      <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvTotalMoeda5"
+          app:layout_constraintStart_toEndOf="@+id/tvLabelTotalMoeda5"
+          app:layout_constraintTop_toBottomOf="@id/dataHora"
+          android:layout_marginStart="10dp"
+          android:textColor="@color/green"
+          app:layout_constraintEnd_toEndOf="parent"
+          tools:text="100"
+          />
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv5Centavos"
@@ -57,17 +93,42 @@
             />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:id="@+id/tv10Centavos"
             app:layout_constraintStart_toEndOf="@+id/tvLabel10Centavos"
             app:layout_constraintTop_toBottomOf="@id/tv5Centavos"
             android:textColor="@color/black"
             tools:text="200"
+            app:layout_constraintEnd_toStartOf="@+id/tvLabelTotalMoeda10"
             />
 
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvLabelTotalMoeda10"
+          app:layout_constraintStart_toEndOf="@+id/tv10Centavos"
+          android:layout_marginStart="15dp"
+          app:layout_constraintTop_toBottomOf="@id/tv5Centavos"
+          android:text="@string/label_saldo"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toStartOf="@+id/tvTotalMoeda10"
+          />
+
+      <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvTotalMoeda10"
+          app:layout_constraintStart_toEndOf="@+id/tvLabelTotalMoeda10"
+          app:layout_constraintTop_toBottomOf="@id/tv5Centavos"
+          android:layout_marginStart="10dp"
+          android:textColor="@color/green"
+          app:layout_constraintEnd_toEndOf="parent"
+          tools:text="100"
+          />
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv10Centavos"
@@ -77,7 +138,7 @@
             />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:id="@+id/tv25Centavos"
             app:layout_constraintStart_toEndOf="@+id/tvLabel25Centavos"
@@ -86,8 +147,33 @@
             tools:text="200"
             />
 
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvLabelTotalMoeda25"
+          app:layout_constraintStart_toEndOf="@+id/tv25Centavos"
+          android:layout_marginStart="15dp"
+          app:layout_constraintTop_toBottomOf="@id/tv10Centavos"
+          android:text="@string/label_saldo"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toStartOf="@+id/tvTotalMoeda25"
+          />
+
+      <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvTotalMoeda25"
+          app:layout_constraintStart_toEndOf="@+id/tvLabelTotalMoeda25"
+          app:layout_constraintTop_toBottomOf="@id/tv10Centavos"
+          android:layout_marginStart="10dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:textColor="@color/green"
+          tools:text="100"
+          />
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv25Centavos"
@@ -97,7 +183,7 @@
             />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:id="@+id/tv50Centavos"
             app:layout_constraintStart_toEndOf="@+id/tvLabel50Centavos"
@@ -106,8 +192,33 @@
             tools:text="200"
             />
 
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvLabelTotalMoeda50"
+          app:layout_constraintStart_toEndOf="@+id/tv50Centavos"
+          android:layout_marginStart="15dp"
+          app:layout_constraintTop_toBottomOf="@id/tv25Centavos"
+          android:text="@string/label_saldo"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toStartOf="@+id/tvTotalMoeda50"
+          />
+
+      <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvTotalMoeda50"
+          app:layout_constraintStart_toEndOf="@+id/tvLabelTotalMoeda50"
+          app:layout_constraintTop_toBottomOf="@id/tv25Centavos"
+          android:layout_marginStart="10dp"
+          android:textColor="@color/green"
+          app:layout_constraintEnd_toEndOf="parent"
+          tools:text="100"
+          />
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv50Centavos"
@@ -117,7 +228,7 @@
             />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:id="@+id/tv1real"
             app:layout_constraintStart_toEndOf="@+id/tvLabel1real"
@@ -125,6 +236,30 @@
             android:textColor="@color/black"
             tools:text="200"
             />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvLabelTotalMoeda1"
+          app:layout_constraintStart_toEndOf="@+id/tv1real"
+          android:layout_marginStart="15dp"
+          app:layout_constraintTop_toBottomOf="@id/tv50Centavos"
+          android:text="@string/label_saldo"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toStartOf="@+id/tvTotalMoeda1"
+          />
+
+      <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvTotalMoeda1"
+          app:layout_constraintStart_toEndOf="@+id/tvLabelTotalMoeda1"
+          android:textColor="@color/green"
+          app:layout_constraintTop_toBottomOf="@id/tv50Centavos"
+          android:layout_marginStart="10dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          tools:text="100"
+          />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

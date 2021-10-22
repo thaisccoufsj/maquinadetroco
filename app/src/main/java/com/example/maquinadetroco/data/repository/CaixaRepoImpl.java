@@ -96,7 +96,7 @@ public class CaixaRepoImpl implements CaixaRepo {
     public void deleteHistorico(HistoricoCaixa historicoCaixa, RepositoryCallback<Void> callback) {
         new Thread(() -> {
             try{
-                caixaDAO.deleteHistorico(historicoCaixa);
+                caixaDAO.deleteHistorico(historicoCaixa.getId());
             }catch (Exception e){
                 callback.onFalha(e);
             }

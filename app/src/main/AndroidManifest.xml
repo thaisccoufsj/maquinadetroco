@@ -4,23 +4,39 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaquinaDeTroco">
         <activity
-            android:name=".Activitys.HistoricoActivity"
-            android:exported="false" />
+            android:name=".activitys.HistoricoActivity"
+            android:exported="false">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activitys.CaixaActivity" />
+
+        </activity>
         <activity
-            android:name=".Activitys.AlterarCaixaActivity"
+            android:name=".activitys.GerarTrocoActivity"
+            android:exported="false">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activitys.CaixaActivity" />
+
+        </activity>
+        <activity
+            android:name=".activitys.AlterarCaixaActivity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activitys.CaixaActivity" />
+                android:value=".activitys.CaixaActivity" />
         </activity>
         <activity
-            android:name=".Activitys.CaixaActivity"
+            android:name=".activitys.CaixaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

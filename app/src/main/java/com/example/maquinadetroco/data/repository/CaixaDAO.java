@@ -30,7 +30,7 @@ public interface CaixaDAO {
     @Insert
     Long insertHistorico(HistoricoCaixa historicoCaixa);
 
-    @Delete
-    void deleteHistorico(HistoricoCaixa historicoCaixa);
+    @Query("DELETE FROM HISTORICO_CAIXA where id = :id")
+    void deleteHistorico(long id);
 
 }

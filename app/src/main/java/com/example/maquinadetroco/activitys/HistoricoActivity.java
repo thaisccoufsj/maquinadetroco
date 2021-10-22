@@ -1,6 +1,7 @@
-package com.example.maquinadetroco.Activitys;
+package com.example.maquinadetroco.activitys;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
@@ -16,26 +17,31 @@ import com.example.maquinadetroco.R;
 import com.example.maquinadetroco.adapters.HistoricoAdapter;
 import com.example.maquinadetroco.data.repository.CaixaRepo;
 import com.example.maquinadetroco.data.repository.CaixaRepoImpl;
-import com.example.maquinadetroco.databinding.ActivityCaixaBinding;
 import com.example.maquinadetroco.databinding.ActivityHistoricoBinding;
 import com.example.maquinadetroco.factorys.CaixaViewModelFactory;
 import com.example.maquinadetroco.models.HistoricoCaixa;
-import com.example.maquinadetroco.viewModels.CaixaViewModel;
 import com.example.maquinadetroco.viewModels.HistoricoCaixaViewModel;
 
 import java.util.List;
 
 public class HistoricoActivity extends AppCompatActivity {
 
-    private ActivityHistoricoBinding binding;
     private HistoricoCaixaViewModel viewModel;
     private HistoricoAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityHistoricoBinding.inflate(getLayoutInflater());
+        com.example.maquinadetroco.databinding.ActivityHistoricoBinding binding = ActivityHistoricoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Toolbar myChildToolbar = binding.toolbar;
+        setSupportActionBar(myChildToolbar);
+        ActionBar actionBar = getSupportActionBar();
+
+        if(actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         CaixaRepo repository = new CaixaRepoImpl(this.getApplication());
         viewModel = new ViewModelProvider(this, new CaixaViewModelFactory(repository)).get(HistoricoCaixaViewModel.class);
@@ -56,7 +62,7 @@ public class HistoricoActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.histtorico_menu, menu);
+        inflater.inflate(R.menu.historico_menu, menu);
         return true;
     }
 

@@ -1,9 +1,8 @@
-package com.example.maquinadetroco.Activitys;
+package com.example.maquinadetroco.activitys;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -77,33 +76,30 @@ public class AlterarCaixaActivity extends AppCompatActivity {
             });
         }
 
-        viewModel.getStateView().observe(this, new Observer<StateView>() {
-            @Override
-            public void onChanged(StateView stateView) {
+        viewModel.getStateView().observe(this, stateView -> {
 
-                switch (stateView.getCode()){
+            switch (stateView.getCode()){
 
-                    case Constants.STATE_VIEW_DATA_SAVED:
-                        String mensagem = "";
-                        if(modo == Constants.ADICIONAR_MOEDAS){
-                            mensagem = "As moedas foram adicionadas com sucesso";
-                        }else{
-                            mensagem = "As moedas foram retiradas com sucesso";
-                        }
+                case Constants.STATE_VIEW_DATA_SAVED:
+                    String mensagem = "";
+                    if(modo == Constants.ADICIONAR_MOEDAS){
+                        mensagem = "As moedas foram adicionadas com sucesso";
+                    }else{
+                        mensagem = "As moedas foram retiradas com sucesso";
+                    }
 
-                        Dialogs.getInstance(AlterarCaixaActivity.this).showMessage(mensagem,(dialog,which) -> {
-                            AlterarCaixaActivity.this.finish();
-                        });
+                    Dialogs.getInstance(AlterarCaixaActivity.this).showMessage(mensagem,(dialog,which) -> {
+                        AlterarCaixaActivity.this.finish();
+                    });
 
-                        break;
+                    break;
 
-                    case Constants.STATE_VIEW_ERROR:
-                        Dialogs.getInstance(AlterarCaixaActivity.this).showMessage(stateView.getMessage());
-                        break;
-
-                }
+                case Constants.STATE_VIEW_ERROR:
+                    Dialogs.getInstance(AlterarCaixaActivity.this).showMessage(stateView.getMessage());
+                    break;
 
             }
+
         });
         enableListeners();
 

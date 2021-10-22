@@ -1,4 +1,4 @@
-package com.example.maquinadetroco.Activitys;
+package com.example.maquinadetroco.activitys;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -62,14 +62,14 @@ public class CaixaActivity extends AppCompatActivity {
         binding.btnAdicionarMoedas.setOnClickListener(view -> {
             Intent intent = new Intent(this,AlterarCaixaActivity.class);
             intent.putExtra(getString(R.string.ACTIVITY_ALTERAR_CAIXA_MODO),Constants.ADICIONAR_MOEDAS);
-            intent.putExtra(getString(R.string.ACTIVITY_ALTERAR_CAIXA_DADOS),obterCaixa());
+            intent.putExtra(getString(R.string.ACTIVITY_ALTERAR_CAIXA_DADOS), getCaixa());
             mStartForResult.launch(intent);
         });
 
         binding.btnRetirarMoedas.setOnClickListener(view -> {
             Intent intent = new Intent(this,AlterarCaixaActivity.class);
             intent.putExtra(getString(R.string.ACTIVITY_ALTERAR_CAIXA_MODO),Constants.RETIRAR_MOEDAS);
-            intent.putExtra(getString(R.string.ACTIVITY_ALTERAR_CAIXA_DADOS),obterCaixa());
+            intent.putExtra(getString(R.string.ACTIVITY_ALTERAR_CAIXA_DADOS), getCaixa());
             mStartForResult.launch(intent);
         });
 
@@ -78,12 +78,14 @@ public class CaixaActivity extends AppCompatActivity {
         });
 
         binding.btnNovoTroco.setOnClickListener(view -> {
-
+            Intent intent = new Intent(this, GerarTrocoActivity.class);
+            intent.putExtra(getString(R.string.CAIXA), getCaixa());
+            mStartForResult.launch(intent);
         });
 
     }
 
-    private Caixa obterCaixa(){
+    private Caixa getCaixa(){
         return new Caixa(id,Integer.parseInt(binding.tvQuantidade5Centavos.getText().toString()),
                 Integer.parseInt(binding.tvQuantidade10Centavos.getText().toString()),
                 Integer.parseInt(binding.tvQuantidade25Centavos.getText().toString()),

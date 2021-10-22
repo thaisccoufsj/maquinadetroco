@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.maquinadetroco.models.Caixa;
 import com.example.maquinadetroco.models.HistoricoCaixa;
 
-@Database(entities = {Caixa.class, HistoricoCaixa.class}, version = 2,exportSchema = false)
+@Database(entities = {Caixa.class, HistoricoCaixa.class}, version = 3,exportSchema = false)
 public abstract class AppDataBase extends RoomDatabase {
 
     private static final String DB_NAME = "maquina_trocos";
